@@ -14,42 +14,42 @@ export async function GET() {
         return new NextResponse('Internal Error', { status: 500 })
     }
 }
-export async function POST(request: Request) {
-    try {
+// export async function POST(request: Request) {
+//     try {
         
-        const body = await request.json();
-        const {
-          id,
-        } = body
-            const session = useSession()
-            if (session?.data?.user?.email) {
-                const User =await prisma.user.findUnique({
-                    where: {
-                        email: session.data.user.email
-                    }
-                })
-                if (User) {
+//         const body = await request.json();
+//         const {
+//           id,
+//         } = body
+//             const session = useSession()
+//             if (session?.data?.user?.email) {
+//                 const User =await prisma.user.findUnique({
+//                     where: {
+//                         email: session.data.user.email
+//                     }
+//                 })
+//                 if (User) {
                   
                     
-                    if (Cart) {
-                    return NextResponse.json({ status: "Success" })
-                    } else{
-                return NextResponse.json({ status: "Failed", message: "somthing went wrong" })
-                    }
-                } else {
-                return NextResponse.json({ status: "Failed", message: "unautherizated User" })
+//                     if (Cart) {
+//                     return NextResponse.json({ status: "Success" })
+//                     } else{
+//                 return NextResponse.json({ status: "Failed", message: "somthing went wrong" })
+//                     }
+//                 } else {
+//                 return NextResponse.json({ status: "Failed", message: "unautherizated User" })
 
-                }
+//                 }
 
-            } else {
-                return NextResponse.json({ status: "Failed", message: "unautherizated User" })
-            }
+//             } else {
+//                 return NextResponse.json({ status: "Failed", message: "unautherizated User" })
+//             }
         
 
-    } catch (error: any) {
-        console.log("-----------------------------------");
-        console.log(error);
-        console.log("-----------------------------------");
-        return new NextResponse('Internal Error', { status: 500 })
-    }
-}
+//     } catch (error: any) {
+//         console.log("-----------------------------------");
+//         console.log(error);
+//         console.log("-----------------------------------");
+//         return new NextResponse('Internal Error', { status: 500 })
+//     }
+// }
